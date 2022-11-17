@@ -15,3 +15,8 @@ El Desafio consistio en desarrollar unas preguntas sobre el Lenguaje Java, el SG
 ## Pregunta 03: Aplicando patrones de tipo MVC, usando los verbos correspondientes crear las siguientes operaciones que den mantenimiento a la tabla Agentes haciendo uso del paquete creado en el punto 2. 
 
 [![Pregunta03.jpg](https://i.postimg.cc/x1C32rjx/Pregunta03.jpg)](https://postimg.cc/3dsvXcvm)
+
+## Pregunta 04: 3.	Haciendo uso del lenguaje de programación JAVA elaborar la clase que permita interactuar con la base de datos, haciendo uso del paquete creado en el punto 2. 
+
+[![Pregunta0401.jpg](https://i.postimg.cc/SsvpgbKB/Pregunta0401.jpg)](https://postimg.cc/0MD3N3Dn)
+[![Pregunta0402.jpg](https://i.postimg.cc/X7MvW9VT/Pregunta0402.jpg)](https://postimg.cc/WtnV6Fqn)
