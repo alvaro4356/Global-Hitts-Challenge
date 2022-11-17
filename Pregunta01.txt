@@ -1,0 +1,26 @@
+CREATE TABLE Agentes (
+Id_Agentes  NUMBER(9),
+TipoDeDocumento VARCHAR2(10),
+NumeroDeDocumento NUMBER(20),
+RazonSocial VARCHAR2(50),
+Estado BOOLEAN,
+Primary key (Id_Agentes) 
+);
+
+create sequence sec_Id_Agentes
+start with 1
+increment by 1
+maxvalue 99999
+minvalue 1;
+
+alter table Agentes 
+ add constraint UQ_Agentes_TipoDeDocumento
+ unique(TipoDeDocumento);
+
+alter table Agentes 
+ add constraint UQ_Agentes_NumeroDeDocumento
+ unique(NumeroDeDocumento);
+
+alter table Agentes 
+ add constraint UQ_Agentes_RazonSocial
+ unique(RazonSocial);

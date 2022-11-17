@@ -1,0 +1,132 @@
+create noneditionable package body PKG_GLOBAL is
+
+/* Cod= 0 significa que el procedimiento no se realizo con exito */
+/* Cod=1 signifca que el procedimiento  se realizo con exito */
+
+procedure INSERTAR_AGENTE(Tipo_de_Documento2 in varchar2,Numero_de_Documento2 in number,
+Razon_Social2 in varchar2,Estado2 in boolean,cod out number,msg out varchar2) 
+AS
+BEGIN
+
+INSERT into Agentes(Tipo_de_Documento,Numero_de_Documento,Razon_Social,Estado2)
+VALUES 
+(Tipo_de_Documento2,Numero_de_Documento2,Razon_Social2,Estado2)
+
+DECLARE 
+NumeroDeDocumentoRango EXCEPTION;
+
+BEGIN
+
+IF NumeroDeDocumento NOT BETWEEN  1 AND 999999999 THEN
+RAISE NumeroDeDocumentoRango;
+ELSE
+cod := 1;
+msg := 'El procedimiento Insertar se realizo con exito';
+END IF;
+
+EXCEPTION
+ WHEN NumeroDeDocumentoRango THEN DBMS_OUTPUT.PUT_LINE("Numero de Documento incorrecto");
+
+END;
+
+END;
+
+
+procedure Actualizar_AGENTE(Id_Agentes2 in number, Tipo_de_Documento2 in varchar2,Numero_de_Documento2 in number,
+Razon_Social2 in varchar2,Estado2 in boolean,cod out number,msg out varchar2) 
+AS
+BEGIN
+
+UPDATE Agentes 
+SET TipoDeDocumento=Tipo_de_Documento2,
+NumeroDeDocumento=Numero_de_Documento2,
+RazonSocial=Razon_Social2,
+Estado=Estado2
+WHERE Id_Agentes=Id_Agentes2
+
+DECLARE 
+IdAgentesRango EXCEPTION;
+
+BEGIN
+
+IF Id_Agentes NOT BETWEEN  1 AND 99999 THEN
+RAISE IdAgentesRango;
+ELSE
+cod := 1;
+msg := 'El procedimiento Actualizar se realizo con exito';
+
+END IF;
+
+EXCEPTION
+ WHEN IdAgentesRango THEN DBMS_OUTPUT.PUT_LINE("Numero de Id Agente incorrecto");
+
+END;
+
+END;
+
+
+procedure Eliminar_AGENTE(Id_Agentes2 in number) 
+AS
+cod number(3);
+msg varchar2(50);
+BEGIN
+
+DELETE 
+FROM Agentes
+WHERE Id_Agentes=Id_Agentes2
+
+DECLARE 
+TipoDeDocumentoValido EXCEPTION;
+
+BEGIN
+
+IF TipoDeDocumento NOT LIKE 'DNI' OR 'RUC' OR 'PASAPORTE' THEN
+RAISE TipoDeDocumentoValido ;
+ELSE
+{cod := 1;
+msg := 'El procedimiento Eliminar se realizo con exito';
+}
+END IF;
+
+EXCEPTION
+ WHEN TipoDeDocumentoValido THEN DBMS_OUTPUT.PUT_LINE("Tipo de Documento invalido");
+
+END; 
+
+END;
+
+
+procedure Listar_AGENTE(Id_Agentes2 in number) 
+AS
+cod number(3);
+msg varchar2(50);
+
+BEGIN
+
+SELECT Id_Agentes,TipoDeDocumento,NumeroDeDocumento,RazonSocial,Estado2
+FROM Agentes
+WHERE Id_Agentes=Id_Agentes2
+
+DECLARE 
+RAZONSOCIALVACIO EXCEPTION;
+
+BEGIN
+
+IF RazonSocial==''  THEN
+RAISE RAZONSOCIALVACIO ;
+ELSE
+{cod := 1;
+msg := 'El procedimiento Listar se realizo con exito';
+}
+END IF;
+
+EXCEPTION
+ WHEN RAZONSOCIALVACIO THEN DBMS_OUTPUT.PUT_LINE("No puede existir NOMBRE o RAZON SOCIAL Vacio");
+
+END ;
+
+END;
+
+END PKG_GLOBAL;
+
+
