@@ -10,3 +10,4 @@ El Desafio consistio en desarrollar unas preguntas sobre el Lenguaje Java, el SG
 
 - Consideraciones:
 
+[![Pregunta02.jpg](https://i.postimg.cc/SxD167R5/Pregunta02.jpg)](https://postimg.cc/3k0Z7GgC)
